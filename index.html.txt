@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi-TECH Solutions | Soluções Tecnológicas Integradas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0066ff;
+            --secondary: #003399;
+            --accent: #ff6600;
+            --dark: #222;
+            --light: #f9f9f9;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            background: var(--secondary);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: 0.3s;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 20px;
+            text-align: center;
+            color: white;
+        }
+        .cta-button {
+            background: var(--accent);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 25px;
+            transition: 0.3s;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background: #e65c00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--secondary);
+            font-size: 2.5rem;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 20px auto;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px;
+            transition: 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 60px 20px 30px;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 15px;
+            font-size: 24px;
+            transition: 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        textarea {
+            min-height: 150px;
+        }
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            position: relative;
+        }
+        .testimonial:before {
+            content: '"';
+            font-size: 80px;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: rgba(0, 0, 0, 0.1);
+            font-family: serif;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        .product-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        .product-details img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        .features-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        .features-list li:before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .chatbot-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            transition: 0.3s;
+        }
+        .chatbot-button:hover {
+            transform: scale(1.1);
+        }
+        .chatbot-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            overflow: hidden;
+        }
+        .chatbot-header {
+            background: var(--secondary);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chatbot-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 15px;
+            background: #f5f5f5;
+        }
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            margin: 0;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+        .chatbot-input button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            clear: both;
+        }
+        .bot-message {
+            background: white;
+            float: left;
+            border-bottom-left-radius: 5px;
+        }
+        .user-message {
+            background: var(--primary);
+            color: white;
+            float: right;
+            border-bottom-right-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            nav a {
+                margin: 5px;
+                padding: 5px 8px;
+                font-size: 14px;
+            }
+            .hero {
+                padding: 100px 20px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .chatbot-container {
+                width: 90%;
+                right: 5%;
+                bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1><i class="fas fa-microchip"></i> Hi-TECH Solutions</h1>
+        <p>Tecnologia Inteligente para o Sucesso do Seu Negócio</p>
+    </header>
+
+    <!-- Menu de Navegação -->
+    <nav>
+        <a href="#home"><i class="fas fa-home"></i> Home</a>
+        <a href="#produtos"><i class="fas fa-box-open"></i> Produtos</a>
+        <a href="#sobre"><i class="fas fa-info-circle"></i> Sobre Nós</a>
+        <a href="#depoimentos"><i class="fas fa-quote-left"></i> Depoimentos</a>
+        <a href="#blog"><i class="fas fa-blog"></i> Blog</a>
+        <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+    </nav>
+
+    <!-- Banner Principal -->
+    <div class="hero" id="home">
+        <h2>Soluções Tecnológicas para o Futuro</h2>
+        <p>Automação, Inteligência Artificial e Segurança de Dados para Transformar sua Empresa</p>
+        <a href="#produtos" class="cta-button">Conheça Nossas Soluções</a>
+    </div>
+
+    <!-- Seção de Produtos -->
+    <section id="produtos">
+        <h2 class="section-title">Nossas Soluções</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Automação">
+                <h3>Hi-TECH Automation Suite</h3>
+                <p>Plataforma completa para automação de processos empresariais com IA, reduzindo custos em até 40%.</p>
+                <a href="#automacao" class="cta-button" style="margin-top: auto; width: fit-content;">Detalhes</a>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cloud Computing">
+                <h3>Hi-TECH SecureCloud</h3>
+                <p>Armazenamento em nuvem com criptografia quântica e backup automático para proteção total de dados.</p>
+                <a href="#securecloud" class="cta-button" style="margin-top: auto; width: fit-content;">Detalhes</a>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="ERP">
+                <h3>Hi-TECH ERP Pro</h3>
+                <p>Sistema de gestão empresarial integrado para finanças, estoque e recursos humanos em tempo real.</p>
+                <a href="#erp" class="cta-button" style="margin-top: auto; width: fit-content;">Detalhes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Página de Produto Detalhada - Automation Suite -->
+    <section id="automacao" style="background: var(--light);">
+        <div class="product-details">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Automation Suite">
+            <div class="product-info">
+                <h2>Hi-TECH Automation Suite</h2>
+                <p>Revolucione sua operação com nossa plataforma de automação inteligente que combina RPA (Robotic Process Automation) com Inteligência Artificial para maximizar a eficiência operacional.</p>
+                
+                <h3>Principais Recursos:</h3>
+                <ul class="features-list">
+                    <li>Automação de processos repetitivos</li>
+                    <li>Integração com sistemas legados</li>
+                    <li>Análise preditiva de dados</li>
+                    <li>Relatórios personalizados em tempo real</li>
+                    <li>Suporte 24/7 com especialistas</li>
+                </ul>
+                
+                <h3>Benefícios:</h3>
+                <ul class="features-list">
+                    <li>Redução de até 40% nos custos operacionais</li>
+                    <li>Aumento de 300% na velocidade de processos</li>
+                    <li>Eliminação de 99% dos erros manuais</li>
+                </ul>
+                
+                <a href="#contato" class="cta-button">Solicitar Demonstração</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Página de Produto Detalhada - SecureCloud -->
+    <section id="securecloud">
+        <div class="product-details">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="SecureCloud">
+            <div class="product-info">
+                <h2>Hi-TECH SecureCloud</h2>
+                <p>Solução completa de armazenamento em nuvem com segurança de nível militar e disponibilidade garantida.</p>
+                
+                <h3>Principais Recursos:</h3>
+                <ul class="features-list">
+                    <li>Criptografia quântica de ponta a ponta</li>
+                    <li>Backup automático e versionamento</li>
+                    <li>99,99% de uptime garantido</li>
+                    <li>Armazenamento ilimitado (planos empresariais)</li>
+                    <li>Compliance com LGPD e GDPR</li>
+                </ul>
+                
+                <h3>Planos Disponíveis:</h3>
+                <ul class="features-list">
+                    <li><strong>Básico:</strong> 500GB - R$99/mês</li>
+                    <li><strong>Profissional:</strong> 2TB - R$199/mês</li>
+                    <li><strong>Empresarial:</strong> Ilimitado - Sob consulta</li>
+                </ul>
+                
+                <a href="#contato" class="cta-button">Experimente Grátis por 30 Dias</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Página de Produto Detalhada - ERP Pro -->
+    <section id="erp" style="background: var(--light);">
+        <div class="product-details">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="ERP Pro">
+            <div class="product-info">
+                <h2>Hi-TECH ERP Pro</h2>
+                <p>Sistema de gestão empresarial completo que integra todos os departamentos da sua organização em uma única plataforma intuitiva e poderosa.</p>
+                
+                <h3>Módulos Principais:</h3>
+                <ul class="features-list">
+                    <li>Gestão Financeira</li>
+                    <li>Controle de Estoque</li>
+                    <li>Recursos Humanos</li>
+                    <li>Vendas e CRM</li>
+                    <li>Business Intelligence</li>
+                </ul>
+                
+                <h3>Vantagens Competitivas:</h3>
+                <ul class="features-list">
+                    <li>Implementação rápida (em média 15 dias)</li>
+                    <li>Interface intuitiva com treinamento incluso</li>
+                    <li>Customização para seu modelo de negócio</li>
+                    <li>Suporte dedicado por 12 meses</li>
+                </ul>
+                
+                <a href="#contato" class="cta-button">Agende uma Consultoria</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre a Empresa -->
+    <section id="sobre">
+        <h2 class="section-title">Quem Somos</h2>
+        <div class="grid">
+            <div>
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipe Hi-TECH" style="border-radius: 10px;">
+            </div>
+            <div>
+                <h3>Nossa História</h3>
+                <p>Fundada em 2023 por um grupo de engenheiros e especialistas em TI, a Hi-TECH Solutions nasceu da necessidade de trazer inovação tecnológica acessível para empresas brasileiras. Começamos como uma pequena startup em São Paulo e hoje atendemos mais de 500 clientes em todo o país.</p>
+                
+                <h3>Nossa Missão</h3>
+                <p>Democratizar o acesso à tecnologia de ponta, fornecendo soluções inteligentes que impulsionam a eficiência, segurança e crescimento sustentável das empresas, independentemente de seu tamanho ou segmento.</p>
+                
+                <h3>Nossos Valores</h3>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="card">
+                        <i class="fas fa-lightbulb" style="font-size: 2rem; color: var(--accent);"></i>
+                        <h4>Inovação</h4>
+                        <p>Buscamos constantemente novas tecnologias e abordagens criativas</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-handshake" style="font-size: 2rem; color: var(--accent);"></i>
+                        <h4>Parceria</h4>
+                        <p>Nosso sucesso é medido pelo sucesso de nossos clientes</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-lock" style="font-size: 2rem; color: var(--accent);"></i>
+                        <h4>Segurança</h4>
+                        <p>Priorizamos a proteção dos dados e sistemas de nossos clientes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" style="background: var(--light);">
+        <h2 class="section-title">O que Nossos Clientes Dizem</h2>
+        <div class="grid">
+            <div class="testimonial">
+                <p>"A Hi-TECH transformou completamente nossa operação logística. Em 3 meses, reduzimos nossos custos operacionais em 35% e aumentamos a produtividade em 60%."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva">
+                    <div>
+                        <strong>Carlos Silva</strong>
+                        <p>CEO, Transportes Nacional</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>"O sistema de ERP da Hi-TECH foi fundamental para nossa expansão internacional. A implementação foi rápida e o suporte é excepcional."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Beatriz">
+                    <div>
+                        <strong>Ana Beatriz</strong>
+                        <p>Diretora Financeira, ModaStyle</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>"Depois de sofrer um ataque cibernético, migramos para a SecureCloud e finalmente temos paz de espírito quanto à segurança de nossos dados."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Roberto Almeida">
+                    <div>
+                        <strong>Roberto Almeida</strong>
+                        <p>CTO, SaúdeTotal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog">
+        <h2 class="section-title">Últimas do Blog</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="IA">
+                <h3>Como a IA está Transformando os Negócios em 2024</h3>
+                <p>Descubra as principais tendências de inteligência artificial para empresas.</p>
+                <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                    <small><i class="far fa-calendar"></i> 15/05/2024</small>
+                    <a href="#" class="cta-button" style="padding: 8px 15px; font-size: 14px;">Ler Artigo</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Segurança">
+                <h3>Protegendo Seus Dados em um Mundo Digital</h3>
+                <p>Guia completo com as melhores práticas de segurança cibernética.</p>
+                <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                    <small><i class="far fa-calendar"></i> 02/05/2024</small>
+                    <a href="#" class="cta-button" style="padding: 8px 15px; font-size: 14px;">Ler Artigo</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tendências">
+                <h3>5 Tendências Tecnológicas para Ficar de Olho</h3>
+                <p>As inovações que vão impactar seu negócio nos próximos meses.</p>
+                <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                    <small><i class="far fa-calendar"></i> 22/04/2024</small>
+                    <a href="#" class="cta-button" style="padding: 8px 15px; font-size: 14px;">Ler Artigo</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#" class="cta-button">Ver Todos os Artigos</a>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <h2 class="section-title">Fale Conosco</h2>
+        <div class="grid">
+            <div>
+                <h3>Informações de Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - 10º andar<br>São Paulo/SP - CEP 01310-100</p>
+                <p><i class="fas fa-phone"></i> (11) 4002-8922</p>
+                <p><i class="fas fa-envelope"></i> contato@hitechsolutions.com.br</p>
+                <p><i class="fas fa-clock"></i> Segunda a Sexta: 8h às 18h</p>
+                
+                <h3 style="margin-top: 30px;">Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                
+                <h3 style="margin-top: 30px;">Trabalhe Conosco</h3>
+                <p>Envie seu currículo para:<br><i class="fas fa-envelope"></i> rh@hitechsolutions.com.br</p>
+            </div>
+            <div>
+                <form id="contact-form">
+                    <h3>Envie sua Mensagem</h3>
+                    <input type="text" placeholder="Seu Nome" required>
+                    <input type="email" placeholder="Seu E-mail" required>
+                    <input type="tel" placeholder="Seu Telefone">
+                    <select required>
+                        <option value="">Selecione um assunto</option>
+                        <option value="produtos">Informações sobre Produtos</option>
+                        <option value="suporte">Suporte Técnico</option>
+                        <option value="parcerias">Parcerias Comerciais</option>
+                        <option value="outros">Outros Assuntos</option>
+                    </select>
+                    <textarea placeholder="Sua Mensagem" required></textarea>
+                    <button type="submit" class="cta-button">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa -->
+    <section style="padding: 0;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197584455882!2d-46.65867592468706!3d-23.56134617880016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59ceb1eb771f%3A0xe904f6a669744da1!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1683654257299!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="grid">
+                <div>
+                    <h3>Hi-TECH Solutions</h3>
+                    <p>Tecnologia que impulsiona o futuro dos negócios</p>
+                </div>
+                <div>
+                    <h3>Links Rápidos</h3>
+                    <a href="#produtos">Produtos</a><br>
+                    <a href="#sobre">Sobre Nós</a><br>
+                    <a href="#blog">Blog</a><br>
+                    <a href="#contato">Contato</a>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <a href="#">Termos de Uso</a><br>
+                    <a href="#">Política de Privacidade</a><br>
+                    <a href="#">Cookies</a>
+                </div>
+                <div>
+                    <h3>Assine nossa Newsletter</h3>
+                    <form style="display: flex;">
+                        <input type="email" placeholder="Seu e-mail" style="margin: 0; border-radius: 5px 0 0 5px;">
+                        <button type="submit" style="background: var(--accent); color: white; border: none; border-radius: 0 5px 5px 0; padding: 0 15px; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <hr style="margin: 30px 0; border-color: rgba(255,255,255,0.1);">
+            <p>&copy; 2024 Hi-TECH Solutions. Todos os direitos reservados.</p>
+            <p>CNPJ: 12.345.678/0001-99</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <span>Assistente Virtual Hi-TECH</span>
+            <i class="fas fa-times" id="closeChatbot"></i>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">
+                Olá! Sou o assistente virtual da Hi-TECH. Como posso ajudar você hoje?
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Digite sua mensagem..." id="chatbotInput">
+            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        // Chatbot functionality
+        const chatbotButton = document.getElementById('chatbotButton');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const sendMessage = document.getElementById('sendMessage');
+        
+        chatbotButton.addEventListener('click', () => {
+            chatbotContainer.style.display = chatbotContainer.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        closeChatbot.addEventListener('click', () => {
+            chatbotContainer.style.display = 'none';
+        });
+        
+        sendMessage.addEventListener('click', sendUserMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendUserMessage();
+        });
+        
+        function sendUserMessage() {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user-message';
+                userMessage.textContent = message;
+                chatbotMessages.appendChild(userMessage);
+                
+                // Clear input
+                chatbotInput.value = '';
+                
+                // Scroll to bottom
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                
+                // Simulate bot response after a delay
+                setTimeout(() => {
+                    const botResponse = getBotResponse(message.toLowerCase());
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'message bot-message';
+                    botMessage.textContent = botResponse;
+                    chatbotMessages.appendChild(botMessage);
+                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                }, 1000);
+            }
+        }
+        
+        function getBotResponse(message) {
+            if (message.includes('ola') || message.includes('oi') || message.includes('bom dia')) {
+                return "Olá! Como posso ajudar você hoje? Posso fornecer informações sobre nossos produtos, suporte técnico ou agendar uma demonstração.";
+            } else if (message.includes('produto') || message.includes('solução')) {
+                return "Temos três soluções principais:\n1. Hi-TECH Automation Suite\n2. Hi-TECH SecureCloud\n3. Hi-TECH ERP Pro\nSobre qual você gostaria de saber mais?";
+            } else if (message.includes('preço') || message.includes('quanto custa')) {
+                return "Os preços variam conforme as necessidades de cada empresa. Posso conectar você com um de nossos consultores para uma cotação personalizada. Posso fazer isso?";
+            } else if (message.includes('suporte') || message.includes('problema')) {
+                return "Para suporte técnico, você pode:\n1. Ligar para (11) 4002-8922\n2. Enviar e-mail para suporte@hitechsolutions.com.br\n3. Abrir um chamado em nosso portal de suporte\nComo posso ajudar?";
+            } else if (message.includes('obrigado') || message.includes('agradeço')) {
+                return "Foi um prazer ajudar! Se tiver mais alguma dúvida, estou à disposição. Tenha um ótimo dia!";
+            } else {
+                return "Desculpe, não entendi completamente. Poderia reformular sua pergunta? Caso prefira, posso conectar você com um de nossos especialistas humanos.";
+            }
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado por sua mensagem! Entraremos em contato em breve.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
